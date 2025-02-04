@@ -1,3 +1,11 @@
+<?php
+
+require_once "../App/Models/Database.php";
+require_once "../vendor/autoload.php";
+use App\Models\Database;
+
+    $data = new Database();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

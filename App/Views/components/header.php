@@ -4,8 +4,8 @@
         <div class="container h-full mx-auto px-6 py-3">
             <div class="flex h-full items-center justify-between">
                 <div class="flex h-full items-center">
-                    <a href="<?="$realpath/Public/index.php"?>" class="text-2xl h-full font-bold text-blue-600">
-                        <img src="<?="$realpath\Public\assets\images\logo.png"?>" alt="logo du site" class="h-full">
+                    <a href="<?="$realpath/Public/index.php"?>">
+                        <img src="<?="$realpath/Public/assets/images/logo.png"?>" alt="logo du site" class="h-full">
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
