@@ -1,0 +1,15 @@
+{
+    "name": "ycode/youdemy-mvc",
+    "autoload": {
+        "psr-4": {
+            "Ycode\\YoudemyMvc\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MhamedOuhanane",
+            "email": "mhmdeouhnan60@gmail.com"
+        }
+    ],
+    "require": {}
+}
