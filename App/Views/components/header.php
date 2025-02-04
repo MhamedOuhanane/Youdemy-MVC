@@ -1,15 +1,14 @@
-<?php $realpath = realpath(__DIR__ ."../../../../")?>
 <!-- Navigation -->
     <nav class="bg-white h-[4rem] shadow-md">
         <div class="container h-full mx-auto px-6 py-3">
             <div class="flex h-full items-center justify-between">
                 <div class="flex h-full items-center">
-                    <a href="<?="$realpath/Public/index.php"?>">
-                        <img src="<?="$realpath/Public/assets/images/logo.png"?>" alt="logo du site" class="h-full">
+                    <a href="<?="./homes.php"?>" class="h-full">
+                        <img src="../../Public/assets/images/logo.png" alt="logo du site" class="h-full">
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="./" class="text-blue-600">Home</a>
+                    <a href="./home.php" class="text-blue-600">Home</a>
                     <a href="./pages/Etudiant/Cours.php" class="text-gray-600 hover:text-blue-600">Cours</a>
                     <a href="./pages/Etudiant/Profil.php" class="text-gray-600 hover:text-blue-600">Profil</a>
                 </div>
@@ -27,8 +26,8 @@
                     </div>
                 <?php } else { ?>
                     <div class="flex items-center space-x-4">
-                        <a href="./pages/Authentification/connexion.php" class="text-gray-600 hover:text-blue-600">Se connecter</a>
-                        <a href="./pages/Authentification/inscription.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">S'inscrire</a>
+                        <a href="./Authentification/connexion.php" class="text-gray-600 hover:text-blue-600">Se connecter</a>
+                        <a href="./Authentification/inscription.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">S'inscrire</a>
                     </div>
                 <?php } ?>
             </div>
