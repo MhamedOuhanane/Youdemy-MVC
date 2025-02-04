@@ -1,5 +1,6 @@
 <?php
     namespace App\Models;
+    
     class Database {
         private const host = "localhost";
         private const username = "postgres";

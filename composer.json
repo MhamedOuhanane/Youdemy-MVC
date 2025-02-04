@@ -2,7 +2,7 @@
     "name": "ycode/youdemy-mvc",
     "autoload": {
         "psr-4": {
-            "Ycode\\YoudemyMvc\\": "App/"
+            "App\\": "App/"
         }
     },
     "authors": [
