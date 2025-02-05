@@ -2,6 +2,7 @@
     namespace App\Controllers\Autentification;
 
 use App\Models\Requites;
+use App\Models\RolesModels;
 use App\Models\UsersModels;
 
     class Users{
@@ -60,41 +61,43 @@ use App\Models\UsersModels;
 
         public function connexion() {
             $UsersModels = new UsersModels();
+            $RolesModels = new RolesModels();
             $users = $UsersModels->ObjectsUsers('email', $this->email);
-            $role = 'Admine';
+            $roles = $RolesModels->ObjectsRoles('id_role', $users[0]->id_role);
             
-            
-            // if ($users != NULL) {
-            //     if ($users['status'] == 'Activé') {
-            //         if (password_verify($this->password , $users['password'])) {
-            //             session_start();
-            //             $this->id_role = $users[0]->id_r;
-            //             $_SESSION['id_user'] = $users['id_user'];
-            //             $_SESSION['username'] = $users['username'];
-            //             $_SESSION['email'] = $users['email'];
-            //             $_SESSION['telephone'] = $users['telephone'];
-            //             $_SESSION['image'] = base64_encode($users['image']);
-            //             $_SESSION['ville'] = $users['ville'];
-            //             $_SESSION['role'] = $role;
-            //         } else {
-            //             $erreur = 'Le mot de pas est inccorect . ';
-            //             header("Location: ../connexion.php?erreur=$erreur");
-            //             exit;
-            //         }
-            //     } else if ($users['status'] == 'En Vérification') {
-            //         $erreur = "Votre compte n'a pas encore été vérifié par l'administrateur, veuillez patienter.";
-            //         header("Location: ../connexion.php?erreur=$erreur");
-            //         exit;
-            //     } else if ($users['status'] == 'Suspendu') {
-            //         $erreur = "Votre compte a été suspendu. Veuillez patienter, votre compte sera activé prochainement.";
-            //         header("Location: ../connexion.php?erreur=$erreur");
-            //         exit;
-            //     }
-            // } else {
-            //     $erreur = 'Cette Compts n\'existe pas .';
-            //     header("Location: ../connexion.php?erreur=$erreur");
-            //     exit;
-            // }
+            if ($users != NULL) {
+                
+                if ($users[0]->status == 'Activé') {
+                    if (password_verify($this->password , $users[0]->password)) {
+                        $image = stream_get_contents($users[0]->image);
+                        session_start();
+                        $_SESSION['id_user'] = $users[0]->id_user;
+                        $_SESSION['username'] = $users[0]->username;
+                        $_SESSION['email'] = $users[0]->email;
+                        $_SESSION['telephone'] = $users[0]->telephone;
+                        $_SESSION['image'] = base64_encode($image);
+                        $_SESSION['ville'] = $users[0]->ville;
+                        $_SESSION['role'] = $roles[0]->getData('role');
+                        header("Location: ../../../../Public/index.php");
+                    } else {
+                        $erreur = 'Le mot de pas est inccorect . ';
+                        header("Location: ../../../Views/Authentification/connexion.php?erreur=$erreur");
+                        exit;
+                    }
+                } else if ($users[0]->status == 'En Vérification') {
+                    $erreur = "Votre compte n'a pas encore été vérifié par l'administrateur, veuillez patienter.";
+                    header("Location: ../../../Views/Authentification/connexion.php?erreur=$erreur");
+                    exit;
+                } else if ($users[0]->status == 'Suspendu') {
+                    $erreur = "Votre compte a été suspendu. Veuillez patienter, votre compte sera activé prochainement.";
+                    header("Location: ../../../Views/Authentification/connexion.php?erreur=$erreur");
+                    exit;
+                }
+            } else {
+                $erreur = 'Cette Compts n\'existe pas .';
+                header("Location: ../../../Views/Authentification/connexion.php?erreur=$erreur");
+                exit;
+            }
         }
                 
     }

@@ -9,5 +9,3 @@ use App\Models\RolesModels;
     // foreach ($a as $value) {
     //     var_dump($value->getData('id_role') . "et " . $value->getData('role'));
     // }
-    $user = new Users([]);
-    $user->connexion();

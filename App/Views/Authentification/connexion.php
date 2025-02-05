@@ -60,7 +60,7 @@
 
             <div class="flex flex-col justify-center md:justify-start pt-8 md:pt-4 px-8 md:px-24 lg:px-32">
                 <p class="text-center text-3xl">Bienvenue.</p>
-                <form class="flex flex-col pt-3 md:pt-4" action="./proccessors/auth.php" method="POST">
+                <form class="flex flex-col pt-3 md:pt-4" action="../../Controllers/Autentification/proccessors/connexion.php" method="POST">
                     <div class="flex flex-col pt-4">
                         <label for="email" class="text-lg">Email</label>
                         <input type="email" name="emailConnex" id="email" placeholder="votre@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500">
