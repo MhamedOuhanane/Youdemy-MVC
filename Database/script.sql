@@ -5,7 +5,7 @@ CREATE TABLE roles(
     role varchar(50) NOT NULL
 );
 
-CREATE TYPE status_user AS ENUM('Active', 'Suspendu');
+CREATE TYPE status_user AS ENUM('Activé', 'Suspendu', 'En Vérification');
 CREATE TABLE users(
 	id_user serial PRIMARY KEY,
     username varchar(225) NOT NULL,

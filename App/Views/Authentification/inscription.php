@@ -72,7 +72,7 @@
                 
                 <!-- Form Content -->
                 <div class="p-8">
-                    <form class="space-y-8" action="./proccessors/addUser.php" method="POST" enctype="multipart/form-data">
+                    <form class="space-y-8" action="../../Controllers/Autentification/proccessors/inscription.php" method="POST" enctype="multipart/form-data">
                         <!-- Role Selection -->
                         <div class="p-8 border-b border-gray-200">
                             <h3 class="text-xl font-semibold text-gray-700 mb-6 text-center">Choisissez votre rôle</h3>

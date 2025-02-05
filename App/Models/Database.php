@@ -15,6 +15,7 @@
             try{
                 $this->connection = new \PDO($db);
                 $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                $this->connection->exec("SET CLIENT_ENCODING TO 'UTF8'");
             }catch (\PDOException $e){
                 echo $e->getMessage();
             }

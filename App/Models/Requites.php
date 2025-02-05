@@ -34,6 +34,7 @@
                 $type = is_int($value) ? \PDO::PARAM_INT : \PDO::PARAM_STR;
                 $result->bindValue(":" . $key , $value, $type);
             }
+            
             return $result->execute();
         }
 
@@ -58,8 +59,6 @@
             if ( $this->data->execute()) {
                 return $this->data->fetchAll(\PDO::FETCH_ASSOC);
             }
-            
-            
         }
 
         // selectWhere 
