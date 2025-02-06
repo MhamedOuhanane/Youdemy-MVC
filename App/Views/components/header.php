@@ -10,7 +10,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="./home.php" class="text-blue-600">Home</a>
                     <a href="./Cours.php" class="text-gray-600 hover:text-blue-600">Cours</a>
-                    <a href="./pages/Etudiant/Profil.php" class="text-gray-600 hover:text-blue-600">Profil</a>
+                    <a href="./Etudiant/profil.php" class="text-gray-600 hover:text-blue-600">Profil</a>
                 </div>
                 <?php if (isset($_SESSION['id_user'])) {?>
                     <div class="flex items-center space-x-4">

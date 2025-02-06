@@ -3,6 +3,7 @@
 use App\Models\listeInsModels;
 
     require_once "../../../vendor/autoload.php";
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +18,7 @@ use App\Models\listeInsModels;
         type="image/png"
     >
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
-    <link rel="stylesheet" href="../../assets/css/input.css">
-    <link rel="stylesheet" href="../../assets/css/output.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="bg-gray-50">
@@ -83,19 +83,19 @@ use App\Models\listeInsModels;
                         <h2 class="text-xl font-semibold mb-4">Information Personnelle</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-gray-700 font-semibold mb-2 border-b-2">Nom Complet</label>
+                                <label class="block text-gray-700 font-semibold mb-2 border-b-2 border-gray-400">Nom Complet</label>
                                 <p class="text-gray-600"><?= $_SESSION['username']; ?></p>
                             </div>
                             <div>
-                                <label class="block text-gray-700 font-semibold mb-2 border-b-2">Email</label>
+                                <label class="block text-gray-700 font-semibold mb-2 border-b-2 border-gray-400">Email</label>
                                 <p class="text-gray-600"><?= $_SESSION['email']; ?></p>
                             </div>
                             <div>
-                                <label class="block text-gray-700 font-semibold mb-2 border-b-2">Téléphone</label>
+                                <label class="block text-gray-700 font-semibold mb-2 border-b-2 border-gray-400">Téléphone</label>
                                 <p class="text-gray-600"><?= $_SESSION['telephone']; ?></p>
                             </div>
                             <div>
-                                <label class="block text-gray-700 font-semibold mb-2 border-b-2">Ville</label>
+                                <label class="block text-gray-700 font-semibold mb-2 border-b-2 border-gray-400">Ville</label>
                                 <p class="text-gray-600"><?= $_SESSION['ville']; ?></p>
                             </div>
                         </div>
@@ -116,10 +116,9 @@ use App\Models\listeInsModels;
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <?php
                                 $listeMesCours = listeInsModels::ObjectsListe('email', $_SESSION['email'], 'cours', 'id_cour');
-                                
+                                var_dump($listeMesCours);
                                 if ($listeMesCours) {
                                     foreach ($listeMesCours as $value) {
-                                        $cours->toStringMesCours($value['id_user']);
                             ?>
                             
                             <div class="bg-white rounded-lg shadow-md overflow-hidden">

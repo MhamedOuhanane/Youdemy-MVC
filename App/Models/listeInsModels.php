@@ -6,14 +6,17 @@ use App\Controllers\listeIns;
     class listeInsModels {
         private static $list = [];
 
-        public static function ObjectsListe($columnfilter1, $filter1, $columnfilter2 = "", $filter2 = "", $columnsearch1 = "", $search = "", $status = null, $id_user=null, $enseig = null) {
+        public static function ObjectsListe($con1 = null, $value1 = null, $con2 = null, $value2 = null) {
             $requite = new Requites();
-            $Result = $requite->fetchData('listeinscriptioncours', $columnfilter1, $filter1, $columnfilter2, $filter2, $columnsearch1, $search, $status, $id_user, $enseig);
+            $Result = $requite->selectAll('listeinscriptioncours', $con1, $value1, $con2, $value2);
+            var_dump($Result);
             foreach ($Result as $value) {
                 self::$list[] = new listeIns($value);
             }
             return self::$list;
         }
+
+
 
         public static function find($columnName1, $columnValue1, $columnName2=null, $columnValue2=null) {
             $requite = new Requites();
