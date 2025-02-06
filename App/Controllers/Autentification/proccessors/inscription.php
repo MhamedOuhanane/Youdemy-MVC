@@ -6,8 +6,7 @@ use App\Models\RolesModels;
 
     if (isset($_POST['submitInscr'])) {
         $role = $_POST['role'];
-        $RolesModels = new RolesModels();
-        $roles = $RolesModels->ObjectsRoles();
+        $roles = RolesModels::ObjectsRoles();
         foreach ($roles as $value) {
             if ($value->getData('role') == $role) {
                 $id_role = $value->getData('id_role');

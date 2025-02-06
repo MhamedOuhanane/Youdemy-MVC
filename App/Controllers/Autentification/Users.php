@@ -60,10 +60,8 @@ use App\Models\UsersModels;
         }
 
         public function connexion() {
-            $UsersModels = new UsersModels();
-            $RolesModels = new RolesModels();
-            $users = $UsersModels->ObjectsUsers('email', $this->email);
-            $roles = $RolesModels->ObjectsRoles('id_role', $users[0]->id_role);
+            $users = UsersModels::ObjectsUsers('email', $this->email);
+            $roles = RolesModels::ObjectsRoles('id_role', $users[0]->id_role);
             
             if ($users != NULL) {
                 

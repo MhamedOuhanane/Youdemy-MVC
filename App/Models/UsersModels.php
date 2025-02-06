@@ -5,16 +5,16 @@ use App\Controllers\Autentification\Users;
 use App\Models\Requites;
 
     class UsersModels {
-        private $users = [];
+        private static $users = [];
         
-        public function ObjectsUsers($columnName = null, $columnValue = null) {
+        public static function ObjectsUsers($columnName = null, $columnValue = null) {
             $requite = new Requites();
             try{
                 $role =$requite->selectAll('users', $columnName , $columnValue);
                 foreach ($role as $value) {
-                    $this->users[] = new Users($value);
+                    self::$users[] = new Users($value);
                 }
-                return $this->users;
+                return self::$users;
             }catch (\PDOException $e){
                 return $e->getMessage();
             }

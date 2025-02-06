@@ -22,7 +22,7 @@ inputPagines.forEach(element => {
 });
 
 function FetchCatalogue(){
-    const url = `./pages/Etudiant/proccessors/fetchCata.php?NBpage=${NBpage}`;
+    const url = `../Controllers/API/fetchCata.php?NBpage=${NBpage}`;
     fetch(url)
     .then(response => response.json())
     .then(data =>{

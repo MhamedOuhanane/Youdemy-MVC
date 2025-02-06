@@ -1,3 +1,8 @@
+<?php
+require_once "../../vendor/autoload.php";
+use App\Controllers\Catalogues;
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -75,9 +80,16 @@
             <!-- Pagination -->
             <div id="conPagination" class="flex justify-center items-center space-x-2">
                 <?php 
-                    // $catalogue = new Catalogues();
-                    // $catalogue->pagination(3);
+                
+                    $btnpage = Catalogues::pagination(3);
+                    for ($i=1; $i < $btnpage+1; $i++) { 
+                        $stylePg = ($i == 1) ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'; 
                 ?>
+                        <input type="radio" id="page'.<?= htmlspecialchars($i) ?>.'" name="pagination" value="'. <?= htmlspecialchars($i) ?> .'" class="hidden">
+                        <label for="page'.<?= htmlspecialchars($i) ?>.'" class="px-4 py-2 border rounded-lg '. <?= htmlspecialchars($stylePg) ?> .' cursor-pointer">'. <?= htmlspecialchars($i) ?> .'</label>
+
+                <?php } ?>
+                
             </div>
         </div>
     </div>

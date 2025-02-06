@@ -5,16 +5,16 @@ use App\Controllers\Roles;
 use App\Models\Requites;
 
     class RolesModels {
-        private $roles = [];
+        private static $roles = [];
         
-        public function ObjectsRoles($columnName = null, $columnValue = null) {
+        public static function ObjectsRoles($columnName = null, $columnValue = null) {
             $requite = new Requites();
             try{
                 $role =$requite->selectAll('roles', $columnName , $columnValue);
                 foreach ($role as $value) {
-                    $this->roles[] = new Roles($value['id_role'], $value['role']);
+                    self::$roles[] = new Roles($value['id_role'], $value['role']);
                 }
-                return $this->roles;
+                return self::$roles;
             }catch (\PDOException $e){
                 return $e->getMessage();
             }
