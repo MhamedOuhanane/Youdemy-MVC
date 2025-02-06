@@ -23,9 +23,11 @@ inputPagines.forEach(element => {
 
 function FetchCatalogue(){
     const url = `../Controllers/API/fetchCata.php?NBpage=${NBpage}`;
+    
     fetch(url)
     .then(response => response.json())
     .then(data =>{
+        
         toSring(data);
     })
     .catch(error =>{

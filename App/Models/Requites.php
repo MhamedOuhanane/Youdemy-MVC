@@ -87,7 +87,7 @@
 
         // selectCount
         public function selectCount($table, $columnName1 = null, $columnValue1 = null, $columnName2 = null, $columnValue2 = null) {
-            $this->sql = "SELECT COUNT(*) FROM $table ";
+            $this->sql = "SELECT COUNT(*) AS totale FROM $table ";
             $result = $this->dbcon->query($this->sql);
 
             if ($columnName1 != null && $columnValue1 != null) {
@@ -101,7 +101,7 @@
             
             if ($result->execute()) {
                 $this->data = $result->fetch(\PDO::FETCH_ASSOC);
-                return $this->data["COUNT(*)"];
+                return $this->data["totale"];
             }
         }
 
