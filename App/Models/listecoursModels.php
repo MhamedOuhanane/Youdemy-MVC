@@ -10,7 +10,6 @@ namespace App\Models;
             $requite = new Requites();
             $Result = $requite->fetchData('listecours', $columnfilter1, $filter1, $columnfilter2, $filter2, $columnsearch1, $search, $status, $id_user, $enseig);
             foreach ($Result as $value) {
-                var_dump($value);
                 self::$list[] = new listecours($value);
             }
             return self::$list;

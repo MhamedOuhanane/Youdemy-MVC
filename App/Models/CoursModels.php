@@ -15,4 +15,11 @@ use App\Controllers\Cours;
             }
             return self::$Cours;
         }
+
+        public static function find($columnName1, $columnValue1, $columnName2=null, $columnValue2=null) {
+            $requite = new Requites();
+            $Result = $requite->selectWhere('cours', $columnName1, $columnValue1, $columnName2, $columnValue2);
+            $list = new Cours($Result);
+            return $list;
+        }
     }

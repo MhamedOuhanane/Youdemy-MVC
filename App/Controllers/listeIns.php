@@ -11,6 +11,7 @@ class listeIns extends Users {
     private $imageCours;
     private $id_catalogue;
     private $catalogue_titre;
+    private $date_inscret;
     private $id_ensei;
 
 
@@ -24,6 +25,7 @@ class listeIns extends Users {
         $this->imageCours = $Array['imagecours'] ?? null;
         $this->id_catalogue = $Array['id_catalogue'] ?? null;
         $this->catalogue_titre = $Array['catalogue_titre'] ?? null;
+        $this->date_inscret = $Array['date_inscret'] ?? null;
         $this->id_ensei = $Array['id_enseign'] ?? null;
     }
 
