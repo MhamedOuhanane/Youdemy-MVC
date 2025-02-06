@@ -68,6 +68,6 @@ use App\Models\tagsModels;
     </div>
     <?php require_once "./components/footer.php" ?>
 
-    <script src="../../assets/js/coursEtud.js"></script>
+    <script src="//Public/assets/js/affCours.js"></script>
 </body>
 </html>
