@@ -157,7 +157,7 @@
 
         // fetchData
         public function fetchData($table, $columnfilter1, $filter1, $columnfilter2, $filter2, $columnsearch1, $columnsearch2, $search, $status = null, $id_user=null, $enseig = null) {
-            $this->sql = "SELECT * FROM $table WHERE 1";
+            $this->sql = "SELECT * FROM $table WHERE 1=1";
             if ($status != null) {
                 $this->sql .= " AND status = '$status'";
             }
@@ -176,8 +176,7 @@
                 $params [] = $filter2;
             }
             if ($search != "") {
-                $this->sql .= " AND (($columnsearch1 LIKE ?) OR ($columnsearch2 LIKE ?))";
-                $params [] = "%" . $search . "%"; 
+                $this->sql .= " AND $columnsearch1 LIKE ?";
                 $params [] = "%" . $search . "%";
             }
 

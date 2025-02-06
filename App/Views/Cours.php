@@ -63,11 +63,11 @@ use App\Models\tagsModels;
         <!-- Courses Grid -->
         <div id="CoursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8">
             <!-- Courses Cards -->
-            <div class="w-full h-72"></div>
+            
         </div>
     </div>
     <?php require_once "./components/footer.php" ?>
 
-    <script src="//Public/assets/js/affCours.js"></script>
+    <script src="../../Public/assets/js/affCours.js"></script>
 </body>
 </html>

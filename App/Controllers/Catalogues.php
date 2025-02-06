@@ -6,7 +6,7 @@ use App\Models\Requites;
     class Catalogues {
         protected $id_catalogue;
         protected $catalogue_titre;
-        private $catalogue_contenu;
+        protected $catalogue_contenu;
         private $catalogue_image;
 
         public function __construct($id=null, $titre=null, $contenu=null, $image=null) 

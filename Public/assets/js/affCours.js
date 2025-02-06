@@ -3,7 +3,8 @@ function filterCours() {
     
     const filterCata = selectCatalogue.value;
     const filtertag = selectTags.value;
-    const urlfiltre = `//App/Controllers/API/fetchCours.php?CatalogueId=${filterCata}&tagId=${filtertag}&Search=${searchValue}`;
+    const urlfiltre = `../Controllers/API/fetchCours.php?CatalogueId=${filterCata}&tagId=${filtertag}&Search=${searchValue}`;
+    console.log(urlfiltre);
     
     fetch(urlfiltre)
     .then(response => response.json())
@@ -21,7 +22,7 @@ function filterCours() {
 
 function AfficherCours(params) {
     if (params.length == 0) {
-        CoursesGrid.innerHTML = `<div class="col-span-full text-center text-red-500">
+        CoursesGrid.innerHTML = `<div class="h-72 col-span-full text-center text-red-500">
                                     <span>Aucun Cours trouvé</span>
                                 </div>`;  
         return;          

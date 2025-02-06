@@ -2,20 +2,20 @@
     namespace App\Controllers;
 
     class Cours extends Catalogues {
-        private $id_cour;
-        private $cours_titre;
-        private $description;
+        protected $id_cour;
+        protected $cours_titre;
+        protected $description;
         protected $cours_contenu;
         protected $cours_video;
         protected $type;
-        private $createDate;
-        private $status;
-        private $imageCours;
-        private $id_user;
+        protected $createDate;
+        protected $status;
+        protected $imageCours;
+        protected $id_user;
 
         public function __construct($Arrays)
         {
-            parent::__construct($Arrays['id_catalogue'] ?? NULL, $Arrays['catalogue_titre']??NULL);
+            parent::__construct($Arrays['id_catalogue'] ?? NULL);
             $this->id_cour = $Arrays['id_cour'] ?? null;
             $this->cours_titre = $Arrays['cours_titre'] ?? null;
             $this->description = $Arrays['description'] ?? null;
