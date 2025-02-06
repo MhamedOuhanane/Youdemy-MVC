@@ -21,5 +21,14 @@ class listecours extends Cours {
         $this->tag_titre = $Array['tag_titre'] ?? null;
     }
 
-    
+    public function __set($name, $value)
+        {
+            $this->$name = $value;
+        }  
+        
+        public function __get($name)
+        {
+            return $this->$name;
+        }
+
 }

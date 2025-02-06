@@ -9,7 +9,6 @@ use App\Controllers\listeIns;
         public static function ObjectsListe($con1 = null, $value1 = null, $con2 = null, $value2 = null) {
             $requite = new Requites();
             $Result = $requite->selectAll('listeinscriptioncours', $con1, $value1, $con2, $value2);
-            var_dump($Result);
             foreach ($Result as $value) {
                 self::$list[] = new listeIns($value);
             }

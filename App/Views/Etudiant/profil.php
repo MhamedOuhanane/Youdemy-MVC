@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\listeInsModels;
+use App\Models\UsersModels;
 
     require_once "../../../vendor/autoload.php";
     session_start();
@@ -116,36 +117,39 @@ use App\Models\listeInsModels;
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <?php
                                 $listeMesCours = listeInsModels::ObjectsListe('email', $_SESSION['email'], 'cours', 'id_cour');
-                                var_dump($listeMesCours);
                                 if ($listeMesCours) {
                                     foreach ($listeMesCours as $value) {
+                                        $Enseing = UsersModels::find("id_enseign", $value->__get('id_ensei'));
+                                        $imagecours = stream_get_contents($value->__get('imageCours'));
+                                        $imageEnseing = stream_get_contents($Enseing->__get('image'));
+
                             ?>
                             
                             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src="data:image/png;base64,<?= htmlspecialchars(base64_encode($this->imageCours)) ?>" class="w-full h-48 object-cover">
+                                <img src="data:image/png;base64,<?= htmlspecialchars(base64_encode($imagecours)) ?>" class="w-full h-48 object-cover">
                                 <div class="p-6">
                                     <div class="flex items-center justify-between mb-4">
-                                        <span class="text-sm text-gray-500">#ID: <?= htmlspecialchars($this->id_cour) ?></span>
+                                        <span class="text-sm text-gray-500">#ID: <?= htmlspecialchars($value->__get('id_cour')) ?></span>
                                         <div class="flex self-end flex-wrap gap-2">
-                                            <p class="text-xs text-gray-500"><?= htmlspecialchars($this->createDate)  ?></p>
+                                            <p class="text-xs text-gray-500"><?= htmlspecialchars($value->__get('createDate'))  ?></p>
                                         </div>
                                     </div>
-                                    <h3 class="text-xl font-semibold mb-2"><?= htmlspecialchars($this->cours_titre) ?></h3>
-                                    <p class="text-gray-600 mb-4 line-clamp-2"><?= htmlspecialchars($this->description) ?></p>
+                                    <h3 class="text-xl font-semibold mb-2"><?= htmlspecialchars($value->__get('cours_titre')) ?></h3>
+                                    <p class="text-gray-600 mb-4 line-clamp-2"><?= htmlspecialchars($value->__get('description')) ?></p>
                                     <div class="flex items-center mb-4">
-                                        <img src="data:image/png;base64,<?= htmlspecialchars(base64_encode($enseign['image'])) ?>" alt="Author" class="w-8 h-8 rounded-full mr-3">
+                                        <img src="data:image/png;base64,<?= htmlspecialchars(base64_encode($imageEnseing)) ?>" alt="Author" class="w-8 h-8 rounded-full mr-3">
                                         <div>
-                                            <p class="text-sm font-semibold">Mr.<?= htmlspecialchars($enseign['username']) ?></p>
-                                            <p class="text-xs text-gray-500"><?= htmlspecialchars($enseign['email'])  ?></p>
+                                            <p class="text-sm font-semibold">Mr.<?= htmlspecialchars($Enseing->__get('username')) ?></p>
+                                            <p class="text-xs text-gray-500"><?= htmlspecialchars($Enseing->__get('email'))  ?></p>
                                         </div>
                                     </div>
                                     <div class="catalog flex items-center justify-between">
                                         <div class="text-sm text-gray-500">
                                             <i class="fas fa-folder-open mr-2"></i>
-                                            <?= htmlspecialchars($this->catalogue_titre)  ?>
+                                            <?= htmlspecialchars($value->__get('catalogue_titre'))  ?>
                                         </span>
                                         </div>
-                                            <a href="./Details.php?idCours=<?= htmlspecialchars($this->id_cour)  ?>" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                            <a href="./Details.php?idCours=<?= htmlspecialchars($value->__get('id_cour'))  ?>" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                                                 Voir le cours
                                             </a>
                                         </div>
