@@ -1,3 +1,9 @@
+<?php
+require_once "../../vendor/autoload.php";
+use App\Models\CataloguesModels;
+use App\Models\tagsModels;
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,24 +36,25 @@
                 <select id="selectCatalogue" class="px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500">
                     <option value="">Filtrer par catalogue</option>
                     <?php
-                        $catalgue = Catalogues::GETCATALOGUE();
+                        $catalgue = CataloguesModels::ObjectsCatalogues();
                         if ($catalgue) {
                             foreach($catalgue as $catalo) {
                                 $id = $_GET['idCatalogue'] ?? null;
-                                $catalo->SelectorCatal($id);
-                            }
-                        }
+                                $selected = ($id == $catalo->getData('id_catalogue')) ? "selected" : "" ;
                     ?>
+                                <option <?= htmlspecialchars($selected) ?> value="<?= htmlspecialchars($catalo->getData('id_catalogue'))?>"><?= htmlspecialchars($catalo->getData('catalogue_titre'))?></option>
+                    <?php }} ?>
                 </select>
                 <select id="selectTags" class="px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500">
                     <option value="">Filtrer par tag</option>
                     <?php
-                        $tags = tags::GETTAGS();
+                        $tags = tagsModels::ObjectsTags();
                         if ($tags) {
                             foreach($tags as $tag) {
-                                $tag->toString();
-                            }
-                        }
+                    ?>
+                            <option value="<?= htmlspecialchars($tag->__get('id')) ?>"><?= htmlspecialchars($tag->__get('tagTitre')) ?></option>
+                                
+                    <?php  }} ?>
                     ?>
                 </select>
             </div>
@@ -56,11 +63,11 @@
         <!-- Courses Grid -->
         <div id="CoursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8">
             <!-- Courses Cards -->
-            
+            <div class="w-full h-72"></div>
         </div>
     </div>
-
     <?php require_once "./components/footer.php" ?>
+
     <script src="../../assets/js/coursEtud.js"></script>
 </body>
 </html>

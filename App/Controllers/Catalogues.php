@@ -31,10 +31,10 @@ use App\Models\Requites;
             return ceil($countCata/$totalPage);
         }
 
-        public final function SelectorCatal($id) {
-            $selected = ($id == $this->id_catalogue) ? "selected" : "" ;
-            echo '<option '. $selected .' value="'. $this->id_catalogue .'">'. $this->catalogue_titre .'</option>';
-        }
+        // public final function SelectorCatal($id) {
+        //     $selected = ($id == $this->id_catalogue) ? "selected" : "" ;
+        //     echo '<option '. $selected .' value="'. $this->id_catalogue .'">'. $this->catalogue_titre .'</option>';
+        // }
 
         public function AjouterData(){
             $requite = new Requites();
