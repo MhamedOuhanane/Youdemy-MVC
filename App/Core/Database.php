@@ -1,5 +1,5 @@
 <?php
-    namespace App\Models;
+    namespace App\Core;
     
     class Database {
         private const host = "localhost";

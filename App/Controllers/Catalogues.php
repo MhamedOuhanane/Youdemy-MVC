@@ -55,7 +55,6 @@ use App\Models\Requites;
             if ($this->catalogue_image != null) {
                 $values ['catalogue_image'] = $this->catalogue_image;
             }
-            var_dump($values);
 
             return $requite->update('catalogues', $values, 'id_catalogue', $this->id_catalogue);
         }

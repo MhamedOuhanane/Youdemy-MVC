@@ -11,7 +11,7 @@ use App\Models\listecoursModels;
         $role = $_SESSION['role'];
     }
 
-    $listCours = listecoursModels::ObjectsListe('listecours', "id_catalogue", $filterCata, "id_tag", $filterTag, "cours_titre", "createDate", $Search, 'Publicé') ?? [];
+    $listCours = listecoursModels::ObjectsListe("id_catalogue", $filterCata, "id_tag", $filterTag, "cours_titre", $Search, 'Publicé') ?? [];
     $FormerCours = array_map(function($liste) use ($role){
         $image = stream_get_contents($liste->getData('userimage'));
         $imageCours = stream_get_contents($liste->getData('imageCours'));

@@ -58,10 +58,6 @@ namespace App\Controllers;
         //             </div>';
         // }
 
-        // public function toStringDetail() {
-        //     echo '<span class="bg-blue-100 bg-opacity-25 text-white px-3 py-1 rounded-full text-sm">'.htmlspecialchars($this->tagTitre).'</span>';
-        // }
-
         // public function insertTags() {
         //     $requite = new Requites();
         //     $Array =$requite->selectWhere('tags', 'tag_Titre', $this->tagTitre);

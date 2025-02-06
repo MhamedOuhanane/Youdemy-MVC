@@ -1,6 +1,8 @@
 <?php 
     namespace App\Controllers;
 
+    use App\Controllers\Catalogues;
+
     class Cours extends Catalogues {
         protected $id_cour;
         protected $cours_titre;
@@ -15,7 +17,7 @@
 
         public function __construct($Arrays)
         {
-            parent::__construct($Arrays['id_catalogue'] ?? NULL);
+            parent::__construct($Arrays['id_catalogue'] ?? NULL, $Arrays['catalogue_titre'] ?? NULL, $Arrays['catalogue_contenu'] ?? NULL);
             $this->id_cour = $Arrays['id_cour'] ?? null;
             $this->cours_titre = $Arrays['cours_titre'] ?? null;
             $this->description = $Arrays['description'] ?? null;
@@ -116,36 +118,7 @@
         // public function toStringMesCours($id) {
         //     $requite = new Requites();
         //     $enseign = $requite->selectWhere('users', 'id_user', $id);
-        //     echo '<div class="bg-white rounded-lg shadow-md overflow-hidden">
-        //             <img src="data:image/png;base64,'.  htmlspecialchars(base64_encode($this->imageCours)) .'" class="w-full h-48 object-cover">
-        //             <div class="p-6">
-        //                 <div class="flex items-center justify-between mb-4">
-        //                     <span class="text-sm text-gray-500">#ID: '.  htmlspecialchars($this->id_cour) .'</span>
-        //                     <div class="flex self-end flex-wrap gap-2">
-        //                         <p class="text-xs text-gray-500">'.  htmlspecialchars($this->createDate)  .'</p>
-        //                     </div>
-        //                 </div>
-        //                 <h3 class="text-xl font-semibold mb-2">'.  htmlspecialchars($this->cours_titre) .'</h3>
-        //                 <p class="text-gray-600 mb-4 line-clamp-2">'.  htmlspecialchars($this->description) .'</p>
-        //                 <div class="flex items-center mb-4">
-        //                     <img src="data:image/png;base64,'.  htmlspecialchars(base64_encode($enseign['image'])) .'" alt="Author" class="w-8 h-8 rounded-full mr-3">
-        //                     <div>
-        //                         <p class="text-sm font-semibold">Mr.'.  htmlspecialchars($enseign['username']) .'</p>
-        //                         <p class="text-xs text-gray-500">'.  htmlspecialchars($enseign['email'])  .'</p>
-        //                     </div>
-        //                 </div>
-        //                 <div class="catalog flex items-center justify-between">
-        //                     <div class="text-sm text-gray-500">
-        //                         <i class="fas fa-folder-open mr-2"></i>
-        //                         '.  htmlspecialchars($this->catalogue_titre)  .'
-        //                     </span>
-        //                     </div>
-        //                         <a href="./Details.php?idCours='.  htmlspecialchars($this->id_cour)  .'" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-        //                             Voir le cours
-        //                         </a>
-        //                     </div>
-        //             </div>
-        //         </div>';
+        //     echo '';
 
         // }
 

@@ -1,25 +1,24 @@
 <?php
 namespace App\Models;
 
-    use App\Controllers\listecours;
+use App\Controllers\listeIns;
 
-    class listecoursModels {
+    class listeInsModels {
         private static $list = [];
 
         public static function ObjectsListe($columnfilter1, $filter1, $columnfilter2 = "", $filter2 = "", $columnsearch1 = "", $search = "", $status = null, $id_user=null, $enseig = null) {
             $requite = new Requites();
-            $Result = $requite->fetchData('listecours', $columnfilter1, $filter1, $columnfilter2, $filter2, $columnsearch1, $search, $status, $id_user, $enseig);
+            $Result = $requite->fetchData('listeinscriptioncours', $columnfilter1, $filter1, $columnfilter2, $filter2, $columnsearch1, $search, $status, $id_user, $enseig);
             foreach ($Result as $value) {
-                var_dump($value);
-                self::$list[] = new listecours($value);
+                self::$list[] = new listeIns($value);
             }
             return self::$list;
         }
 
         public static function find($columnName1, $columnValue1, $columnName2=null, $columnValue2=null) {
             $requite = new Requites();
-            $Result = $requite->selectWhere('listecours', $columnName1, $columnValue1, $columnName2, $columnValue2);
-            $list = new listecours($Result);
+            $Result = $requite->selectWhere('listeinscriptioncours', $columnName1, $columnValue1, $columnName2, $columnValue2);
+            $list = new listeIns($Result);
             return $list;
         }
     }

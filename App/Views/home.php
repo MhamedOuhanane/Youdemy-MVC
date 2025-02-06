@@ -1,6 +1,32 @@
 <?php
 require_once "../../vendor/autoload.php";
 use App\Controllers\Catalogues;
+// use App\Models\Requites;
+
+// $requite = new Requites();
+// $defoultImage = "../../Public/assets/images/web.jpg";
+// $image = file_get_contents($defoultImage);
+// $Ara = [
+//     "cours_titre" => "Développement Web pour Débutants",
+//     "description" => "Introduction aux bases du développement web.",
+//     "cours_video" => "https://www.youtube.com/embed/3c4O0grEeBs",
+//     "type" => "video",
+//     "imagecours" => pg_escape_bytea($image),
+//     "status" => "Publicé",
+//     "id_user" => "3",
+//     "id_catalogue" => "1"
+// ];
+// $requite->insertData('cours', $Ara);
+
+
+
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>

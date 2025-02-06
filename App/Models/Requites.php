@@ -1,7 +1,8 @@
 <?php
     namespace App\Models;
+
     
-    use App\Models\Database;
+use App\Core\Database;
     
     class Requites {
         private $dbcon;
@@ -156,7 +157,7 @@
         }
 
         // fetchData
-        public function fetchData($table, $columnfilter1, $filter1, $columnfilter2, $filter2, $columnsearch1, $columnsearch2, $search, $status = null, $id_user=null, $enseig = null) {
+        public function fetchData($table, $columnfilter1, $filter1, $columnfilter2, $filter2, $columnsearch1, $search, $status = null, $id_user=null, $enseig = null) {
             $this->sql = "SELECT * FROM $table WHERE 1=1";
             if ($status != null) {
                 $this->sql .= " AND status = '$status'";
