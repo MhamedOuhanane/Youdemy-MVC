@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Controllers\Autentification\Users;
+use App\Models\Requites;
 
 class listeIns extends Users {
     private $id_cour;
@@ -39,4 +40,9 @@ class listeIns extends Users {
         return $this->$name;
     }
     
+    public static function totalCours($columnName1 = null, $columnValue1 = null, $columnName2 = null, $columnValue2 = null) {
+        $requite = new Requites();
+        $totale = $requite->selectCount('cours', $columnName1 = null, $columnValue1 = null, $columnName2 = null, $columnValue2 = null);
+        return $totale;
+    }
 }

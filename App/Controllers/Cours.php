@@ -2,6 +2,7 @@
     namespace App\Controllers;
 
     use App\Controllers\Catalogues;
+use App\Models\Requites;
 
     class Cours extends Catalogues {
         protected $id_cour;
@@ -122,26 +123,9 @@
 
         // }
 
-        // public function AfficheContenu() {
-        //     if ($this->type == 'video') {
-                
-        //         echo '<iframe width="600" height="350" src="'.$this->cours_video.'" 
-        //                     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        //                     allowfullscreen>
-        //             </iframe>';
-        //     } else if ($this->type == 'document') {
-        //         echo '<iframe 
-        //                 src="./proccessors/document.php?id=' . $this->id_cour . '" 
-        //                 style="width: 100%; height: 800px;" 
-        //                 frameborder="0"
-        //                 allowfullscreen>
-        //             </iframe>';
-        //     }
-        // }
-
-        // public function totalCours() {
-        //     $requite = new Requites();
-        //     $totale = $requite->selectCount('cours');
-        //     return $totale;
-        // }
+        public static function totalCours($columnName1 = null, $columnValue1 = null, $columnName2 = null, $columnValue2 = null) {
+            $requite = new Requites();
+            $totale = $requite->selectCount('cours', $columnName1 = null, $columnValue1 = null, $columnName2 = null, $columnValue2 = null);
+            return $totale;
+        }
     }
